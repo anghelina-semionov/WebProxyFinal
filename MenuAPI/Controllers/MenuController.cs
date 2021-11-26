@@ -47,7 +47,7 @@ namespace MenuAPI.Controllers
         }
 
         [HttpPut]
-        public IActionResult Upsert([FromBody] MenuItem item)
+        public IActionResult Upsert(MenuItem item)
         {
             if (item.Id == Guid.Empty)
             {
@@ -55,12 +55,10 @@ namespace MenuAPI.Controllers
             }
             item.LastChangedAt = DateTime.UtcNow;
             _menuRepository.UpsertItem(item);
-
-
             _menuSyncService.Upsert(item);
             return Ok(item);
         }
-        [HttpPut("sync")]//("sync")
+        [HttpPut("sync")]
         public IActionResult UpsertSync(MenuItem item)
         {
             var existingItem = _menuRepository.GetMenuItemById(item.Id);
@@ -76,7 +74,7 @@ namespace MenuAPI.Controllers
         public IActionResult DeleteSync(MenuItem item)
         {
             var existingItem = _menuRepository.GetMenuItemById(item.Id);
-            if (existingItem != null )//|| item.LastChangedAt > existingItem.LastChangedAt)
+            if (existingItem != null )
             {
                 _menuRepository.DeleteItem(item.Id);
 

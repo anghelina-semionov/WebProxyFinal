@@ -55,11 +55,12 @@ namespace Client.UserControls
                     if (items.Count > 0)
                     {
                         Error.Visibility = Visibility.Hidden;
+                        list.Clear();
                         foreach (var i in items)
                         {
                             list.Add(ConvertToMenuItemControl(i));
                         }
-
+                        ListViewProducts.ItemsSource = null;
                         ListViewProducts.ItemsSource = list;
                     }
                     else
@@ -91,10 +92,12 @@ namespace Client.UserControls
                     if (items.Count > 0)
                     {
                         Error.Visibility = Visibility.Hidden;
+                        list.Clear();
                         foreach (var i in items)
                         {
                             list.Add(ConvertToMenuItemControl(i));
                         }
+                        ListViewProducts.ItemsSource = null;
                         ListViewProducts.ItemsSource = list;
                     }
                     else

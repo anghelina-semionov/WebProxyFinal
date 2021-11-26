@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,6 +18,8 @@ namespace Client.UserControls
     {
         string category = null;
         bool flag = false;
+        Guid newId;
+        DateTime time;
         public EditPage(MenuItemControl menuItemControl)
         {
             InitializeComponent();
@@ -66,6 +69,8 @@ namespace Client.UserControls
                         }
                         else // обновляется существующий
                         {
+                            item.Id = newId;
+                            item.LastChangedAt = time;
                             UpdateMenuItem(item);
                         }
                     }
@@ -110,6 +115,7 @@ namespace Client.UserControls
                 MessageBox.Show("Не удалось сохранить блюдо!", "Ошибка", MessageBoxButton.OK);
             }
             client.Dispose();
+            Thread.Sleep(1000);
             Content = new MenuPage("");
         }
         // Изменить данные блюда
@@ -126,13 +132,14 @@ namespace Client.UserControls
                 menuItem = ConvertToMenuItem(item);
                 var json = JsonConvert.SerializeObject(menuItem);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                await client.PutAsync("MenuItem", data);
+                await client.PutAsync("", data);
             }
             catch
             {
                 MessageBox.Show("Не удалось обновить данные блюда!", "Ошибка", MessageBoxButton.OK);
             }
             client.Dispose();
+            Thread.Sleep(1000);
             Content = new MenuPage("");
         }
         // Вернуть объект класса MenuItem
