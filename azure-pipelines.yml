@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name:local
+  vmImage: windows-latest
 
 variables:
   buildConfiguration: 'Release'
