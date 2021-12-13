@@ -60,7 +60,7 @@ namespace SyncNode.Services
                             var result = HttpClientUtility.SendJson(entity.JsonData, url, entity.SyncType);
                             if (!result.IsSuccessStatusCode)
                             {
-                                // comment
+                                
                             }
                         }
                         catch (Exception e)
