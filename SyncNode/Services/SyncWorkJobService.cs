@@ -1,10 +1,9 @@
-﻿using Common.Models;
-using Common.Utilities;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
+using SyncNode.Models;
 using SyncNode.Settings;
+using SyncNode.Utilities;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,7 +53,7 @@ namespace SyncNode.Services
                     var receivers = _settings.Hosts.Where(u => !u.Contains(entity.Origin));
                     foreach (var receiver in receivers)
                     {
-                        var url = $"{receiver}/menu/sync"; 
+                        var url = $"{receiver}/menu/sync";
                         try
                         {
                             var result = HttpClientUtility.SendJson(entity.JsonData, url, entity.SyncType);

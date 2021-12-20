@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MenuAPI.Settings
+﻿namespace MenuAPI.Settings
 {
     public class SyncServiceSettings : ISyncServiceSettings
     {

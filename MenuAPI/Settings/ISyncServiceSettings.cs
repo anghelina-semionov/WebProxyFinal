@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MenuAPI.Settings
+﻿namespace MenuAPI.Settings
 {
-   public interface ISyncServiceSettings
+    public interface ISyncServiceSettings
     {
         public string Host { get; set; }
 

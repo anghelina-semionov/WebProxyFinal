@@ -1,11 +1,10 @@
-﻿using Common.Models;
+﻿using MenuAPI.Models;
 using MenuAPI.Settings;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MenuAPI.Repositories
 {
@@ -21,8 +20,8 @@ namespace MenuAPI.Repositories
             _collection = _db.GetCollection<T>(tableName);
 
         }
-        
-        
+
+
 
         public void DeleteItem(Guid id)
         {

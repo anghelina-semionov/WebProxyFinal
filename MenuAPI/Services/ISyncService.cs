@@ -1,13 +1,9 @@
-﻿using Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MenuAPI.Models;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace MenuAPI.Services
 {
-    public interface ISyncService <T> where T : MongoDocument 
+    public interface ISyncService<T> where T : MongoDocument
     {
         HttpResponseMessage Upsert(T record);
 

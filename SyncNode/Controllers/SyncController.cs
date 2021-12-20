@@ -1,5 +1,5 @@
-﻿using Common.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SyncNode.Models;
 using SyncNode.Services;
 
 namespace SyncNode.Controllers

@@ -67,5 +67,6 @@ namespace MenuAPI
                 endpoints.MapControllers();
             });
         }
+
     }
 }

@@ -1,13 +1,9 @@
-﻿using Common.Models;
-using Common.Utilities;
+﻿using MenuAPI.Models;
 using MenuAPI.Settings;
+using MenuAPI.Utilities;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MenuAPI.Services
 {
@@ -15,7 +11,7 @@ namespace MenuAPI.Services
     {
         private readonly ISyncServiceSettings _settings;
         private readonly string _origin;
-        public SyncService(ISyncServiceSettings settings,IHttpContextAccessor httpContext)
+        public SyncService(ISyncServiceSettings settings, IHttpContextAccessor httpContext)
         {
             _settings = settings;
             _origin = httpContext.HttpContext.Request.Host.ToString();
@@ -27,9 +23,9 @@ namespace MenuAPI.Services
             var syncType = _settings.DeleteHttpMethod;
             var json = ToSyncEntityJson(item, syncType);
 
-           var response = HttpClientUtility.SendJson(json, _settings.Host, "POST");
+            var response = HttpClientUtility.SendJson(json, _settings.Host, "POST");
 
-           return response;
+            return response;
 
         }
 
@@ -44,7 +40,7 @@ namespace MenuAPI.Services
         }
 
 
-        private string ToSyncEntityJson(T item,string syncType)
+        private string ToSyncEntityJson(T item, string syncType)
         {
 
             var objectType = typeof(T);

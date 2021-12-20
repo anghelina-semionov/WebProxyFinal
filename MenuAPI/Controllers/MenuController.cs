@@ -1,6 +1,6 @@
-﻿using Common.Models;
-using MenuAPI.Repositories;
+﻿using MenuAPI.Repositories;
 using MenuAPI.Services;
+using MenuAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
