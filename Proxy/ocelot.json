@@ -5,12 +5,10 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "https://menuapi-api.azurewebsites.net/"
         },
         {
-          "Host": "localhost",
-          "Port": 9002
+          "Host": "https://menu-api-rel.azurewebsites.net/"
         }
       ],
       "UpstreamPathTemplate": "/{url}",
@@ -28,12 +26,10 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "https://menuapi-api.azurewebsites.net/"
         },
         {
-          "Host": "localhost",
-          "Port": 9002
+          "Host": "localhost"
         }
       ],
       "UpstreamPathTemplate": "/{url}",
